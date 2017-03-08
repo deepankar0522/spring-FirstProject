@@ -1,15 +1,15 @@
 package com.app.deligate;
 
-import com.app.service.UserService;
+import com.app.service.LoginService;
 
 public class LoginDeligate {
-	private UserService userService;
+	private LoginService userService;
 
-	public UserService getUserService() {
+	public LoginService getUserService() {
 		return userService;
 	}
 
-	public void setUserService(UserService userService) {
+	public void setUserService(LoginService userService) {
 		this.userService = userService;
 	}
 

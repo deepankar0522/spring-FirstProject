@@ -6,8 +6,10 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-public class UserDaoImpl implements UserDao {
+public class LoginDaoImpl implements LoginDao {
 
+	DataSource dataSource;
+	
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -16,12 +18,10 @@ public class UserDaoImpl implements UserDao {
 		this.dataSource = dataSource;
 	}
 
-	DataSource dataSource;
-
 	@Override
 	public boolean isValidUser(String username, String password) {
 		boolean isValid = false;
-		String query = "Select count(1) from UserLogin where username = ? and password = ?";
+		String query = "Select count(1) from UserLogin where email = ? and password = ?";
 		try {
 			PreparedStatement pstmt = dataSource.getConnection().prepareStatement(query);
 			pstmt.setString(1, username);
@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao {
 			ResultSet result = pstmt.executeQuery();
 
 			if (result.next()) {
-				isValid = (result.getInt(1) > 1);
+				isValid = (result.getInt(1) >= 1);
 			} else {
 				isValid = false;
 			}

@@ -14,7 +14,8 @@
 	<h1>${ApplicationName}</h1>
 
 	<h3>Enter Username and password to login</h3>
-	<form:form action="/Login" method="post" modelAttribute="LoginForm">
+	
+	<form:form action="user" method="post" modelAttribute="userLoginVO">
 		<spring:bind path="username">
 			User Name : <input type="text" name="username" value="">
 		</spring:bind>
@@ -22,7 +23,10 @@
 			Password  : <input type="password" name="password" value="">
 		</spring:bind>
 		<input type="submit" value="Submit">
-
+	</form:form>
+	
+	<form:form action="Register" method="get">
+		<input type="submit" value="New User? Register Here">
 	</form:form>
 </body>
 </html>

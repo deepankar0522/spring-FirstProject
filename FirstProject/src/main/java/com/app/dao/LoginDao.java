@@ -1,7 +1,7 @@
-package com.app.service;
+package com.app.dao;
 
-public interface UserService {
+public interface LoginDao {
 
 	public boolean isValidUser(String username, String password);
-
+	
 }

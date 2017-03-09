@@ -47,7 +47,7 @@ public class LoginController {
 	public ModelAndView Login(@ModelAttribute("userLoginVO") UserLoginVO userLoginVO, HttpServletRequest request,
 			HttpServletRequest response) {
 		ModelAndView model = null;
-		System.out.println("user: " + userLoginVO.getUsername() + "pass: " + userLoginVO.getPassword());
+		System.out.println("user: " + userLoginVO.getUsername() + " pass: " + userLoginVO.getPassword());
 		try {
 			boolean isValidUser = loginDeligate.isValidUser(userLoginVO.getUsername(), userLoginVO.getPassword());
 			if (isValidUser) {

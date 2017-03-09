@@ -1,5 +1,7 @@
 package com.app.deligate;
 
+import java.sql.SQLException;
+
 import com.app.service.LoginService;
 
 public class LoginDeligate {
@@ -13,7 +15,7 @@ public class LoginDeligate {
 		this.userService = userService;
 	}
 
-	public boolean isValidUser(String username, String password) {
+	public boolean isValidUser(String username, String password) throws SQLException {
 
 		return userService.isValidUser(username, password);
 	}
